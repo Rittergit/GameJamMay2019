@@ -8,6 +8,9 @@ public class Shooter : MonoBehaviour
     {
         var shooting = Input.GetButtonDown("Fire");
         Debug.Log("Shooting!");
-        this.animator.SetBool("shooting", shooting);
+        if (shooting)
+        {
+            this.animator.SetTrigger("shoot");
+        }
     }
 }
