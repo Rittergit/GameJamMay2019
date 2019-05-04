@@ -5,6 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 3f;
 
+    [SerializeField] private Transform rotating;
+
     private Rigidbody rb;
 
     void Start()
@@ -16,8 +18,10 @@ public class PlayerMovement : MonoBehaviour
     {
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
-        var movement = new Vector3(horizontal, 0f, vertical);
-        movement = Vector3.ClampMagnitude(movement, 1f) * this.speed;
+        var direction = new Vector3(horizontal, 0f, vertical);
+        this.rotating.rotation = Quaternion.LookRotation(direction);
+
+        var movement = Vector3.ClampMagnitude(direction, 1f) * this.speed;
         this.rb.velocity = movement;
     }
 }
