@@ -12,7 +12,7 @@ public class Boat : MonoBehaviour
             ? allSpawnPoints[random.Next() % allSpawnPoints.Length]
             : null;
 
-        Debug.Assert(spawnPoint != null, "No spawn points");
+        Debug.Assert(spawnPoint != null, "No spawn points for boat");
         if (spawnPoint != null)
         {
             this.transform.position = spawnPoint.transform.position;
