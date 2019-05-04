@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: edaea0c4d9140f64f9ac9774c72000df
+guid: 976cbb94ff1f5c841845a5b620efd686
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: M_Ground
-    2100002: M_Rock
+    2100000: M_Boat
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Circle
+    4300000: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +40,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10000
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -61,7 +60,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
