@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinPlayers: 2
   m_LobbyPlayerPrefab: {fileID: 2789985311743580639, guid: ead37a6df60944ea3b018f95ed528bdc,
     type: 3}
-  m_GamePlayerPrefab: {fileID: 5406209439767489259, guid: d558b2b7416ec459b8c1e2c397e6c570,
+  m_GamePlayerPrefab: {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219,
     type: 3}
   m_LobbyScene: Menu
   m_PlayScene: Map1
