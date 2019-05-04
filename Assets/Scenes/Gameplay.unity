@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,12 +181,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &231419692 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4120163755923114806, guid: 16c1cdd34167755b1b2cc28e7bf040c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1195792402}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &275751023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267,6 +261,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
+  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -335,9 +330,22 @@ Transform:
   m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 231419692}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507a21465622e51bebdac3cb72030344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1932488215}
 --- !u!1 &933718319
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +473,7 @@ PrefabInstance:
     - target: {fileID: 5406209439767489255, guid: d558b2b7416ec459b8c1e2c397e6c570,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5406209439767489255, guid: d558b2b7416ec459b8c1e2c397e6c570,
         type: 3}
