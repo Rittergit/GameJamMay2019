@@ -1,14 +1,31 @@
 fileFormatVersion: 2
-guid: 25182b96d70df604098346f1fe4741b0
+guid: f62ec84c3603e05449629a837285a533
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: M_Mountain2
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Berg2
+    100000: Rock1
+    100002: Rock2
+    100004: Rock3
+    100006: Rock4
+    100008: //RootNode
+    400000: Rock1
+    400002: Rock2
+    400004: Rock3
+    400006: Rock4
+    400008: //RootNode
+    2100000: No Name
+    2300000: Rock1
+    2300002: Rock2
+    2300004: Rock3
+    2300006: Rock4
+    3300000: Rock1
+    3300002: Rock2
+    3300004: Rock3
+    3300006: Rock4
+    4300000: Rock1
+    4300002: Rock2
+    4300004: Rock3
+    4300006: Rock4
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -40,7 +57,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 10
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
