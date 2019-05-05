@@ -10,7 +10,17 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Circle.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SpruceLeave
+    second: {fileID: 2100000, guid: fd7da168d7a9d3a4da0fa92ee400745d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_SpruceWood
+    second: {fileID: 2100000, guid: f7e2375669484484998f52ac169c1d72, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
