@@ -5,9 +5,19 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Attributes")]
     public float speed = 3f;
+    public AudioClip footStep;
 
     public Rigidbody playerRigidbody;
+    AudioSource audioSource;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (footStep)
+        {
+            audioSource.clip = footStep;
+        }
+    }
     void FixedUpdate()
     {
         CharacterMovement();
@@ -26,5 +36,14 @@ public class PlayerMovement : MonoBehaviour
 
         var movement = Vector3.ClampMagnitude(direction, 1f) * this.speed;
         playerRigidbody.velocity = movement;
+
+        if (horizontal == 0 && vertical == 0)
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.UnPause();
+        }
     }
 }
