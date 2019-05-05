@@ -7,10 +7,26 @@ ModelImporter:
     400000: //RootNode
     2100000: M_Ground
     2100002: M_Rock
+    2100004: M_Sand
     2300000: //RootNode
     3300000: //RootNode
     4300000: Circle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Ground
+    second: {fileID: 2100000, guid: 75ab0484a078ab54d9e503ee76930208, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Rock
+    second: {fileID: 2100000, guid: f7e2375669484484998f52ac169c1d72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Sand
+    second: {fileID: 2100000, guid: 48475228b38821e459e30d7b74e401b7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
