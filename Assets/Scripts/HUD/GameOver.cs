@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class GameOver : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class GameOver : MonoBehaviour
     public void Exit()
     {
         // TODO: Exit to lobby.
+        NetworkManager.singleton.StopServer();
     }
 
     private void OnGameOver(object sender, EventArgs e)
