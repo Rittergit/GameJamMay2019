@@ -40,7 +40,11 @@ public class MonitorStatistic : MonoBehaviour
         if (this.monitorEvent != null)
         {
             EventSystem.Subscribe(this.monitorEvent, this.OnStatisticChanged);
-            this.UpdateStatistic();
+            EventSystem.Subscribe(
+                GameManager.GameReady,
+                this.OnStatisticChanged);
+            if (GameManager.Singleton != null)
+                this.UpdateStatistic();
         }
     }
 
@@ -49,6 +53,9 @@ public class MonitorStatistic : MonoBehaviour
         if (this.monitorEvent != null)
         {
             EventSystem.Unsubscribe(this.monitorEvent, this.OnStatisticChanged);
+            EventSystem.Unsubscribe(
+                GameManager.GameReady,
+                this.OnStatisticChanged);
         }
     }
 
@@ -60,22 +67,26 @@ public class MonitorStatistic : MonoBehaviour
     private void UpdateStatistic()
     {
         var gm = GameManager.Singleton;
-        string message = string.Empty;
-        switch (this.statisticType)
+        Debug.Assert(gm != null, "Game manager is not available at update");
+        if (gm != null)
         {
-            case StatisticType.Health:
-                message = $"{gm.CurrentHealth} / {GameManager.MaxHealth}";
-                break;
+            string message = string.Empty;
+            switch (this.statisticType)
+            {
+                case StatisticType.Health:
+                    message = $"{gm.CurrentHealth} / {GameManager.MaxHealth}";
+                    break;
 
-            case StatisticType.Paddle:
-                message = $"{gm.CurrentPaddles} / {GameManager.MaxPaddle}";
-                break;   
+                case StatisticType.Paddle:
+                    message = $"{gm.CurrentPaddles} / {GameManager.MaxPaddle}";
+                    break;
 
-            case StatisticType.Food:
-                message = $"{gm.CurrentFood} / {GameManager.MaxFood}";
-                break;
+                case StatisticType.Food:
+                    message = $"{gm.CurrentFood} / {GameManager.MaxFood}";
+                    break;
+            }
+
+            this.text.text = message;
         }
-
-        this.text.text = message;
     }
 }

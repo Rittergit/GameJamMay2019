@@ -18,7 +18,7 @@ public class Collectible : MonoBehaviour
         var audioSource = other.gameObject.GetComponent<AudioSource>();
         var isSlave = player != null
             && player.Type == PlayerSpawn.PlayerType.Slave;
-        if (isSlave)
+        if (isSlave && GameManager.Singleton != null)
         {
             switch (this.type)
             {
