@@ -7,9 +7,9 @@ public class Shooter : NetworkBehaviour
     public float shootDelay = 1f;
     public float bulletSpeed = 5f;
     public GameObject bulletPrefab;
-    public AudioClip shootSound;
     public Transform shootPoint;
     [SerializeField] private Animator animator;
+  
     private float timer;
 
     void Update()
@@ -41,12 +41,6 @@ public class Shooter : NetworkBehaviour
 
         //Set Trigger Animation
         this.animator.SetTrigger("shoot");
-
-        //FX
-        if (shootSound)
-        {
-            //Play Sound Effect here
-        }
 
         //reset Timer
         timer = 0f;
