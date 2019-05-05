@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 890453231856095405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -859942077, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 76871810e7df8c979821ef8890f2ee39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 4950
@@ -58,7 +58,10 @@ MonoBehaviour:
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Menu
   m_OnlineScene: 
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 8117702000958663901, guid: a1c0b40b96362448ca4a5e311850a274, type: 3}
+  - {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219, type: 3}
+  - {fileID: 4649900874151234299, guid: 12965cd702d105b41ba44d730bb1641a, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -120,11 +123,13 @@ MonoBehaviour:
   m_MinPlayers: 2
   m_LobbyPlayerPrefab: {fileID: 2789985311743580639, guid: ead37a6df60944ea3b018f95ed528bdc,
     type: 3}
-  m_GamePlayerPrefab: {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219,
-    type: 3}
+  m_GamePlayerPrefab: {fileID: 0}
   m_LobbyScene: Menu
   m_PlayScene: Map1
   lobbySlots: []
+  playerTypes:
+  - {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219, type: 3}
+  - {fileID: 4649900874151234299, guid: 12965cd702d105b41ba44d730bb1641a, type: 3}
 --- !u!114 &890453231856095404
 MonoBehaviour:
   m_ObjectHideFlags: 0
