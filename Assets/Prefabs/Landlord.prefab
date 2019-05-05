@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489883576765388650}
   m_LocalRotation: {x: 0.00000086426724, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.344, y: 1.238, z: 1.026}
+  m_LocalPosition: {x: 0.18, y: 1.238, z: 1.618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5425949292776057740}
@@ -1235,7 +1235,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 24c6523ee1f755d47bfe5c3d4a8ae628, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1326,11 +1326,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462104868071416393}
     m_Modifications:
-    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
-        type: 3}
-      propertyPath: m_Name
-      value: ShootEffect
-      objectReference: {fileID: 0}
     - target: {fileID: 4406659112093584581, guid: e5ae01d867818634188fd8bd43653ba6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1385,6 +1380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
+        type: 3}
+      propertyPath: m_Name
+      value: ShootEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae01d867818634188fd8bd43653ba6, type: 3}
