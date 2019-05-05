@@ -3,6 +3,14 @@ using UnityEngine.Networking;
 
 public class GameManager : NetworkBehaviour
 {
+    public enum WinnerType
+    {
+        None,
+        Slave,
+        Landlord
+    }
+
+    public const string GameOverEvent = "GameManager.GameOver";
     public const string HealthChangeEvent = "GameManager.HealthChange";
     public const string PaddleChangeEvent = "GameManager.PaddleChange";
     public const string FoodChangeEvent = "GameManager.FoodChange";
@@ -13,6 +21,10 @@ public class GameManager : NetworkBehaviour
 
     public static GameManager Singleton { get; private set; }
 
+    [SyncVar(hook = nameof(GameOverHook))]
+    private bool gameOver = false;
+    [SyncVar]
+    private WinnerType winner = WinnerType.None; 
     [SyncVar(hook = nameof(HealthHook))]
     private int currentHealth = MaxHealth;
     [SyncVar(hook = nameof(PaddleHook))]
@@ -30,6 +42,8 @@ public class GameManager : NetworkBehaviour
         Singleton = null;
     }
 
+    public WinnerType CurrentWinner { get { return this.winner; } }
+
     public int CurrentHealth { get { return this.currentHealth; } }
 
     public int CurrentPaddles { get { return this.currentPaddles; } }
@@ -40,6 +54,21 @@ public class GameManager : NetworkBehaviour
     {
         --this.currentHealth;
         EventSystem.Publish(this, HealthChangeEvent);
+
+        if (this.currentHealth == 0)
+        {
+            this.winner = WinnerType.Landlord;
+            this.gameOver = true;
+        }
+    }
+
+    public void TrySlaveEscape()
+    {
+        if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
+        {
+            this.winner = WinnerType.Slave;
+            this.gameOver = true;
+        }
     }
 
     public void CollectPaddle()
@@ -52,6 +81,12 @@ public class GameManager : NetworkBehaviour
     {
         ++this.currentFood;
         EventSystem.Publish(this, FoodChangeEvent);
+    }
+
+    private void GameOverHook(bool value)
+    {
+        if (value)
+            EventSystem.Publish(this, GameOverEvent);
     }
 
     private void HealthHook(int value)
