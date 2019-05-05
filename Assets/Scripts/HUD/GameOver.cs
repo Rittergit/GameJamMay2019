@@ -36,17 +36,22 @@ public class GameOver : MonoBehaviour
 
     private void OnGameOver(object sender, EventArgs e)
     {
-        //Game Over Effect
-        audioSource.Play();
         var gm = GameManager.Singleton;
 
-        this.window.SetActive(true);
+        if (!this.window.activeSelf)
+        {
+            //Game Over Effect
+            audioSource.Play();
+
+            this.window.SetActive(true);
+
+            this.restoreTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+        }
+
         this.slaveWin.SetActive(
             gm.CurrentWinner == GameManager.WinnerType.Slave);
         this.landlordWin.SetActive(
             gm.CurrentWinner == GameManager.WinnerType.Landlord);
-
-        this.restoreTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
     }
 }

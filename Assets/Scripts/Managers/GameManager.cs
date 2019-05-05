@@ -24,7 +24,7 @@ public class GameManager : NetworkBehaviour
 
     [SyncVar(hook = nameof(GameOverHook))]
     private bool gameOver = false;
-    [SyncVar]
+    [SyncVar(hook = nameof(WinnerHook))]
     private WinnerType winner = WinnerType.None; 
     [SyncVar(hook = nameof(HealthHook))]
     private int currentHealth = MaxHealth;
@@ -63,6 +63,7 @@ public class GameManager : NetworkBehaviour
             {
                 this.winner = WinnerType.Landlord;
                 this.gameOver = true;
+                EventSystem.Publish(this, GameOverEvent);
             }
         }
     }
@@ -75,6 +76,7 @@ public class GameManager : NetworkBehaviour
             {
                 this.winner = WinnerType.Slave;
                 this.gameOver = true;
+                EventSystem.Publish(this, GameOverEvent);
             }
         }
     }
