@@ -10,6 +10,7 @@ public class GameManager : NetworkBehaviour
         Landlord
     }
 
+    public const string GameReady = "ClientManager.GameReady";
     public const string GameOverEvent = "GameManager.GameOver";
     public const string HealthChangeEvent = "GameManager.HealthChange";
     public const string PaddleChangeEvent = "GameManager.PaddleChange";
@@ -35,6 +36,7 @@ public class GameManager : NetworkBehaviour
     void Awake()
     {
         Singleton = this;
+        EventSystem.Publish(this, GameReady);
     }
 
     void OnDestroy()
@@ -52,55 +54,78 @@ public class GameManager : NetworkBehaviour
 
     public void DamageSlave()
     {
-        --this.currentHealth;
-        EventSystem.Publish(this, HealthChangeEvent);
-
-        if (this.currentHealth == 0)
+        if (this.isServer)
         {
-            this.winner = WinnerType.Landlord;
-            this.gameOver = true;
+            --this.currentHealth;
+            EventSystem.Publish(this, HealthChangeEvent);
+
+            if (this.currentHealth == 0)
+            {
+                this.winner = WinnerType.Landlord;
+                this.gameOver = true;
+            }
         }
     }
 
     public void TrySlaveEscape()
     {
-        if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
+        if (this.isServer)
         {
-            this.winner = WinnerType.Slave;
-            this.gameOver = true;
+            if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
+            {
+                this.winner = WinnerType.Slave;
+                this.gameOver = true;
+            }
         }
     }
 
     public void CollectPaddle()
     {
-        ++this.currentPaddles;
-        EventSystem.Publish(this, PaddleChangeEvent);
+        if (this.isServer)
+        {
+            ++this.currentPaddles;
+            EventSystem.Publish(this, PaddleChangeEvent);
+        }
     }
 
     public void CollectFood()
     {
-        ++this.currentFood;
-        EventSystem.Publish(this, FoodChangeEvent);
+        if (this.isServer)
+        {
+            ++this.currentFood;
+            EventSystem.Publish(this, FoodChangeEvent);
+        }
     }
 
     private void GameOverHook(bool value)
     {
+        this.gameOver = value;
         if (value)
+            EventSystem.Publish(this, GameOverEvent);
+    }
+
+    private void WinnerHook(WinnerType value)
+    {
+        this.winner = value;
+        if (this.gameOver)
             EventSystem.Publish(this, GameOverEvent);
     }
 
     private void HealthHook(int value)
     {
+        this.currentHealth = value;
         EventSystem.Publish(this, HealthChangeEvent);
     }
 
     private void PaddleHook(int value)
     {
+        this.currentPaddles = value;
         EventSystem.Publish(this, PaddleChangeEvent);
     }
 
     private void FoodHook(int value)
     {
+        this.currentFood = value;
         EventSystem.Publish(this, FoodChangeEvent);
     }
 }
