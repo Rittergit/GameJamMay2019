@@ -7,16 +7,13 @@ public class PlayerSelectionManager : NetworkLobbyManager
 
     private int nextPlayerType;
 
-    public override void OnServerAddPlayer(
+    public override GameObject OnLobbyServerCreateGamePlayer(
         NetworkConnection conn,
         short playerControllerId)
     {
         Debug.Assert(this.nextPlayerType < this.playerTypes.Length);
         var playerType = this.playerTypes[this.nextPlayerType++];
         var player = Instantiate(playerType);
-        NetworkServer.AddPlayerForConnection(
-            conn,
-            player,
-            playerControllerId);
+        return player;
     }
 }
