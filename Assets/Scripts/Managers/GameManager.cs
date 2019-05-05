@@ -89,6 +89,12 @@ public class GameManager : NetworkBehaviour
             EventSystem.Publish(this, GameOverEvent);
     }
 
+    private void WinnerHook(WinnerType value)
+    {
+        if (this.gameOver)
+            EventSystem.Publish(this, GameOverEvent);
+    }
+
     private void HealthHook(int value)
     {
         EventSystem.Publish(this, HealthChangeEvent);

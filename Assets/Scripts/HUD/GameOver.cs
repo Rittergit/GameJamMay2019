@@ -33,15 +33,18 @@ public class GameOver : MonoBehaviour
 
     private void OnGameOver(object sender, EventArgs e)
     {
-        var gm = GameManager.Singleton;
+        if (!this.window.activeSelf)
+        {
+            this.window.SetActive(true);
+            this.restoreTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+        }
 
-        this.window.SetActive(true);
+        var gm = GameManager.Singleton;
+        
         this.slaveWin.SetActive(
             gm.CurrentWinner == GameManager.WinnerType.Slave);
         this.landlordWin.SetActive(
             gm.CurrentWinner == GameManager.WinnerType.Landlord);
-
-        this.restoreTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
     }
 }
