@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class Shooter : MonoBehaviour
-{   
+public class Shooter : NetworkBehaviour
+{
     [Tooltip("Time delay between to shoot. 1.0f = 1 seconds")]
     public float shootDelay = 1f;
+    public float bulletSpeed = 5f;
+    public GameObject bulletPrefab;
     public AudioClip shootSound;
     public Transform shootPoint;
     [SerializeField] private Animator animator;
@@ -11,24 +14,41 @@ public class Shooter : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         //Timer is running. Tick tick .... tok
         timer += Time.deltaTime;
 
-        if(timer >= shootDelay && Input.GetButtonDown("Fire"))
+        if (timer >= shootDelay && Input.GetButtonDown("Fire"))
         {
-            Debug.Log("Choo choo choo, Mother fucker!");
-
-            //Set Trigger Animation
-            this.animator.SetTrigger("shoot");
-
-            //FX
-            if (shootSound)
-            {
-                //Play Sound Effect here
-            }
-
-            //reset Timer
-            timer = 0f;
+            CmdFire();
         }
+    }
+
+    [Command]
+    void CmdFire()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
+
+        NetworkServer.Spawn(bullet);
+
+        Destroy(bullet, 2);
+
+        //Set Trigger Animation
+        this.animator.SetTrigger("shoot");
+
+        //FX
+        if (shootSound)
+        {
+            //Play Sound Effect here
+        }
+
+        //reset Timer
+        timer = 0f;
     }
 }
