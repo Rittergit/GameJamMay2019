@@ -14,7 +14,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Water
-    second: {fileID: 2100000, guid: 187d72d50338dc8499ab46387caf4115, type: 2}
+    second: {fileID: 2100000, guid: 432ae0decf9b11344a78ac20e36e709b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

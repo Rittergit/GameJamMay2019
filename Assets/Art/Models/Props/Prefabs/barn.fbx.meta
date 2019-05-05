@@ -13,7 +13,27 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Barn
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BarnMain
+    second: {fileID: 2100000, guid: 5d6cedc4312a6f04aa7f41cbf505fff9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Door
+    second: {fileID: 2100000, guid: f0b7cf7770e8a594fb0a0eb8d9361cef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Roof
+    second: {fileID: 2100000, guid: 7f52393612516e74e9cd6bdfcf8c8c7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Window
+    second: {fileID: 2100000, guid: 296afed4500d23147bb7417995aa7021, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

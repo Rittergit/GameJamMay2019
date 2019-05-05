@@ -20,7 +20,12 @@ ModelImporter:
     4300000: Plane
     10800000: Point
     10800002: Point.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 4ad09f675964e424cb482ea28cd5b703, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
