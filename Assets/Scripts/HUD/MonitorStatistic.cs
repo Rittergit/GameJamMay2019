@@ -36,7 +36,6 @@ public class MonitorStatistic : MonoBehaviour
                 break;
         }
 
-        Debug.Assert(this.monitorEvent != null, "No statistic type at start");
         if (this.monitorEvent != null)
         {
             EventSystem.Subscribe(this.monitorEvent, this.OnStatisticChanged);
