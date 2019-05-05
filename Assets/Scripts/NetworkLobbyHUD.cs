@@ -5,8 +5,17 @@ public class NetworkLobbyHUD : MonoBehaviour
 {
     public string IpAddress;
     public string Port;
+    public string TestScene;
+    public NetworkLobbyManager networkLobbyManager;
     private bool connected = false;
     private bool showDisconnect = false;
+
+    private string playScene;
+
+    void Start()
+    {
+        playScene = networkLobbyManager.playScene;
+    }
 
     void Update()
     {
@@ -23,8 +32,9 @@ public class NetworkLobbyHUD : MonoBehaviour
             if (GUILayout.Button("Host"))
             {
                 connected = true;
-                NetworkLobbyManager.singleton.networkPort = int.Parse(Port);
-                NetworkLobbyManager.singleton.StartHost();
+                networkLobbyManager.playScene = this.playScene;
+                networkLobbyManager.networkPort = int.Parse(Port);
+                networkLobbyManager.StartHost();
             }
 
             IpAddress = GUILayout.TextField(IpAddress, GUILayout.Width(100));
@@ -32,9 +42,17 @@ public class NetworkLobbyHUD : MonoBehaviour
             if (GUILayout.Button("Connect"))
             {
                 connected = true;
-                NetworkLobbyManager.singleton.networkAddress = IpAddress;
-                NetworkLobbyManager.singleton.networkPort = int.Parse(Port);
-                NetworkLobbyManager.singleton.StartClient();
+                networkLobbyManager.networkAddress = IpAddress;
+                networkLobbyManager.networkPort = int.Parse(Port);
+                networkLobbyManager.StartClient();
+            }
+
+            if (GUILayout.Button("Test"))
+            {
+                connected = true;
+                networkLobbyManager.playScene = TestScene;
+                networkLobbyManager.networkPort = int.Parse(Port);
+                networkLobbyManager.StartHost();
             }
         }
         else
@@ -44,7 +62,7 @@ public class NetworkLobbyHUD : MonoBehaviour
                 if (GUILayout.Button("Disconnect"))
                 {
                     connected = false;
-                    NetworkLobbyManager.singleton.StopHost();
+                    networkLobbyManager.StopHost();
                 }
             }
         }

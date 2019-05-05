@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890453231856095406}
   - component: {fileID: 890453231856095407}
+  - component: {fileID: 1054328873851419758}
   - component: {fileID: 890453231856095404}
   m_Layer: 0
   m_Name: Network Lobby Manager
@@ -130,7 +131,7 @@ MonoBehaviour:
   playerTypes:
   - {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219, type: 3}
   - {fileID: 4649900874151234299, guid: 12965cd702d105b41ba44d730bb1641a, type: 3}
---- !u!114 &890453231856095404
+--- !u!114 &1054328873851419758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,6 +139,22 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890453231856095405}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b9bd3c5f6be4a33a332567e780be69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IpAddress: locahost
+  Port: 7777
+  TestScene: Testing
+  networkLobbyManager: {fileID: 890453231856095407}
+--- !u!114 &890453231856095404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890453231856095405}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
