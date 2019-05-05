@@ -10,6 +10,8 @@ public class PlayerSpawn : MonoBehaviour
 
     [SerializeField] private PlayerType playerType;
 
+    public PlayerType Type { get { return this.playerType; } }
+
     void Start()
     {
          string tag;

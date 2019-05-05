@@ -16,4 +16,9 @@ public class PlayerSelectionManager : NetworkLobbyManager
         var player = Instantiate(playerType);
         return player;
     }
+
+    public override void OnLobbyServerDisconnect(NetworkConnection conn)
+    {
+        this.ServerReturnToLobby();
+    }
 }
