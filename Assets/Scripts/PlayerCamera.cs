@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     public Transform player = null;
-    
+
     private Vector3 fromPlayerToCamera;
 
     void Start()
@@ -18,6 +18,11 @@ public class PlayerCamera : MonoBehaviour
         if (ClientManager.Singleton.CurrentPlayer != null)
         {
             this.player = ClientManager.Singleton.CurrentPlayer.transform;
+            var playerSpawn = this.player.gameObject.GetComponent<PlayerSpawn>();
+            if (playerSpawn.Type == PlayerSpawn.PlayerType.Landlord)
+            {
+                this.fromPlayerToCamera = this.fromPlayerToCamera * 1.5f;
+            }
         }
     }
 
@@ -40,5 +45,10 @@ public class PlayerCamera : MonoBehaviour
     private void OnCurrentPlayerSet(object sender, EventArgs e)
     {
         this.player = ClientManager.Singleton.CurrentPlayer.transform;
+        var playerSpawn = this.player.gameObject.GetComponent<PlayerSpawn>();
+        if (playerSpawn.Type == PlayerSpawn.PlayerType.Landlord)
+        {
+            this.fromPlayerToCamera = this.fromPlayerToCamera * 1.5f;
+        }
     }
 }
