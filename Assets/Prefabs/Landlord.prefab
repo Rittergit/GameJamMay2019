@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 7466395339220198127}
   - component: {fileID: 1031087339148031582}
   - component: {fileID: 3713737990180201130}
+  - component: {fileID: 8050281066982796959}
   m_Layer: 0
   m_Name: Landlord
   m_TagString: Untagged
@@ -1195,12 +1196,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 1
-  bulletSpeed: 5
   bulletPrefab: {fileID: 8117702000958663901, guid: a1c0b40b96362448ca4a5e311850a274,
     type: 3}
   shootPoint: {fileID: 1462104868071416393}
   shootEffect: {fileID: 8235033733508626556}
   animator: {fileID: 4649900874151234298}
+--- !u!114 &8050281066982796959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649900874151234299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d6c6e7f02ba5d0198a014c6ced5939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 0
 --- !u!1001 &8532985658554279753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1208,11 +1221,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462104868071416393}
     m_Modifications:
-    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
-        type: 3}
-      propertyPath: m_Name
-      value: ShootEffect
-      objectReference: {fileID: 0}
     - target: {fileID: 4406659112093584581, guid: e5ae01d867818634188fd8bd43653ba6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1267,6 +1275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
+        type: 3}
+      propertyPath: m_Name
+      value: ShootEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae01d867818634188fd8bd43653ba6, type: 3}
