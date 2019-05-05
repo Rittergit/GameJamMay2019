@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 8396488619430713522}
+  slaveWin: {fileID: 6108740848023283150}
+  landlordWin: {fileID: 49176402492992464}
 --- !u!1 &594151385518385377
 GameObject:
   m_ObjectHideFlags: 0
