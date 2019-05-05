@@ -124,9 +124,10 @@ MonoBehaviour:
   m_MinPlayers: 2
   m_LobbyPlayerPrefab: {fileID: 2789985311743580639, guid: ead37a6df60944ea3b018f95ed528bdc,
     type: 3}
-  m_GamePlayerPrefab: {fileID: 0}
+  m_GamePlayerPrefab: {fileID: 4459851481692901621, guid: 8e3f77816ff6b4ce399f0414f1f739af,
+    type: 3}
   m_LobbyScene: Menu
-  m_PlayScene: Map1
+  m_PlayScene: 
   lobbySlots: []
   playerTypes:
   - {fileID: 1299236795, guid: cb09161efeb574836bc3ee95b32d6219, type: 3}
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b9bd3c5f6be4a33a332567e780be69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IpAddress: locahost
+  IpAddress: 127.0.0.1
   Port: 7777
   TestScene: Testing
   networkLobbyManager: {fileID: 890453231856095407}
