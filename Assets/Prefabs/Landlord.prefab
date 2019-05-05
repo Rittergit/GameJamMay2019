@@ -1009,6 +1009,7 @@ GameObject:
   - component: {fileID: 6592440750495616965}
   - component: {fileID: 1031087339148031582}
   - component: {fileID: 3713737990180201130}
+  - component: {fileID: 5891092989158002198}
   - component: {fileID: 3438095147226430166}
   m_Layer: 0
   m_Name: Landlord
@@ -1151,14 +1152,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 3
-  m_SendInterval: 0.1
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 4
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
   m_MovementTheshold: 0.001
   m_VelocityThreshold: 0.0001
   m_SnapThreshold: 5
-  m_InterpolateRotation: 5
+  m_InterpolateRotation: 100
   m_InterpolateMovement: 1
 --- !u!114 &7466395339220198127
 MonoBehaviour:
@@ -1223,6 +1224,19 @@ MonoBehaviour:
   shootPoint: {fileID: 1462104868071416393}
   shootEffect: {fileID: 8235033733508626556}
   animator: {fileID: 4649900874151234298}
+--- !u!114 &5891092989158002198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4649900874151234299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d6c6e7f02ba5d0198a014c6ced5939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerType: 0
 --- !u!82 &3438095147226430166
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1326,6 +1340,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462104868071416393}
     m_Modifications:
+    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
+        type: 3}
+      propertyPath: m_Name
+      value: ShootEffect
+      objectReference: {fileID: 0}
     - target: {fileID: 4406659112093584581, guid: e5ae01d867818634188fd8bd43653ba6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1380,11 +1399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9075568028487456842, guid: e5ae01d867818634188fd8bd43653ba6,
-        type: 3}
-      propertyPath: m_Name
-      value: ShootEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5ae01d867818634188fd8bd43653ba6, type: 3}
