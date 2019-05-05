@@ -2,14 +2,14 @@
 using UnityEngine.Networking;
 
 public class Shooter : NetworkBehaviour
-{   
+{
     [Tooltip("Time delay between to shoot. 1.0f = 1 seconds")]
     public float shootDelay = 1f;
     public GameObject bulletPrefab;
     public Transform shootPoint;
     public ParticleSystem shootEffect;
     [SerializeField] private Animator animator;
-  
+
     private float timer;
 
     void Update()
@@ -24,6 +24,8 @@ public class Shooter : NetworkBehaviour
 
         if (timer >= shootDelay && Input.GetButtonDown("Fire"))
         {
+            //Set Trigger Animation
+            this.animator.SetTrigger("shoot");
             CmdFire();
         }
     }
