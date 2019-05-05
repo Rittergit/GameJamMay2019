@@ -14,7 +14,37 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Food
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Barrel
+    second: {fileID: 2100000, guid: f0b7cf7770e8a594fb0a0eb8d9361cef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Bread
+    second: {fileID: 2100000, guid: 4d6791b7aedb8694682665d23350af93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BreadInside
+    second: {fileID: 2100000, guid: 13d90ae9912b3f54a8b6cec4914cd59e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CheeseInside
+    second: {fileID: 2100000, guid: 7ee598888eef8894f918d83b382bbd04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CheeseOutside
+    second: {fileID: 2100000, guid: 89c8f889421a28343b6948325da9444b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Drink
+    second: {fileID: 2100000, guid: 432ae0decf9b11344a78ac20e36e709b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

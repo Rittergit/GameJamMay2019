@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8858538e011f1ee4289751eea511c4f0, type: 3}
+  - {fileID: 2100000, guid: 4ad09f675964e424cb482ea28cd5b703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149235716132561095}
   m_Layer: 0
-  m_Name: grass
+  m_Name: grass_normal_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
