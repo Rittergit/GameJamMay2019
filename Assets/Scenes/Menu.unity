@@ -368,6 +368,12 @@ PrefabInstance:
       propertyPath: m_PlayScene
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 890453231856095407, guid: 88c75afa884fd457e84b38b6f66a93b9,
+        type: 3}
+      propertyPath: cameraPrefab
+      value: 
+      objectReference: {fileID: 8919166920303706561, guid: ca33cca018dad1d2e8cf26d903d53152,
+        type: 3}
     - target: {fileID: 890453231856095404, guid: 88c75afa884fd457e84b38b6f66a93b9,
         type: 3}
       propertyPath: m_Enabled
@@ -1154,6 +1160,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 976cbb94ff1f5c841845a5b620efd686, type: 3}
+      propertyPath: m_Name
+      value: boat
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 976cbb94ff1f5c841845a5b620efd686, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.263977
@@ -1197,10 +1207,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 976cbb94ff1f5c841845a5b620efd686, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 976cbb94ff1f5c841845a5b620efd686, type: 3}
-      propertyPath: m_Name
-      value: boat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 976cbb94ff1f5c841845a5b620efd686, type: 3}
