@@ -1,13 +1,12 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ContinueButton : MonoBehaviour
 {
-    [SerializeField] private SceneAsset nextScene;
+    [SerializeField] private string nextScene;
 
     public void GoToNextScene()
     {
-        SceneManager.LoadScene(this.nextScene.name);
+        SceneManager.LoadScene(this.nextScene);
     }
 }
