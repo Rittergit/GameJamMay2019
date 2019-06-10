@@ -6,9 +6,20 @@ public class PlayerMovement : MonoBehaviour
     [Header("Attributes")]
     public float speed = 3f;
     public AudioClip footStep;
+    public bool isPlayer2 = false;
 
     public Rigidbody playerRigidbody;
     AudioSource audioSource;
+
+    private string Horizontal
+    {
+        get { return this.isPlayer2 ? "Horizontal2" : "Horizontal"; }
+    }
+
+    private string Vertical
+    {
+        get { return this.isPlayer2 ? "Vertical2" : "Vertical"; }
+    }
 
     private void Start()
     {
@@ -26,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
     //MOVEMENT
     void CharacterMovement()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var horizontal = Input.GetAxis(this.Horizontal);
+        var vertical = Input.GetAxis(this.Vertical);
         var direction = new Vector3(horizontal, 0f, vertical);
         if (direction.magnitude > 0)
         {

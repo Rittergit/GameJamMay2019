@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8919166920303706560}
   - component: {fileID: 8919166920303706573}
   - component: {fileID: 245928706171320783}
+  - component: {fileID: 9062610665538891955}
   m_Layer: 8
-  m_Name: NetworkCamera
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,3 +158,17 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &9062610665538891955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8919166920303706561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687d250dcbf503a8e98c9698c8a9a491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSplitscreen: 0
+  isPlayer2: 0
