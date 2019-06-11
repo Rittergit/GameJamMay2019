@@ -11,12 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody playerRigidbody;
     AudioSource audioSource;
 
-    private string Horizontal
+    public string Horizontal
     {
         get { return this.isPlayer2 ? "Horizontal2" : "Horizontal"; }
     }
 
-    private string Vertical
+    public string Vertical
     {
         get { return this.isPlayer2 ? "Vertical2" : "Vertical"; }
     }

@@ -52,6 +52,8 @@ public class GameManager : NetworkBehaviour
 
     public int CurrentFood { get { return this.currentFood; } }
 
+    public bool IsSplitscreen { get; set; } = false;
+
     public void DamageSlave()
     {
         if (this.isServer)

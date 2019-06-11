@@ -9,6 +9,8 @@ public class ReactSplitscreen : MonoBehaviour
         this.splitscreen = Object.FindObjectOfType<Splitscreen>();
         if (this.splitscreen != null)
             this.splitscreen.StartSplitscreen();
+
+        GameManager.Singleton.IsSplitscreen = this.splitscreen != null;
     }
 
     void OnDestroy()
