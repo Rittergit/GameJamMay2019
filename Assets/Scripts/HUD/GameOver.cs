@@ -1,9 +1,12 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    private const string MenuScene = "Menu";
+
     [SerializeField] private GameObject window;
     [SerializeField] private GameObject slaveWin;
     [SerializeField] private GameObject landlordWin;
@@ -30,8 +33,15 @@ public class GameOver : MonoBehaviour
     {
         Time.timeScale = this.restoreTimeScale;
 
-        // TODO: Exit to lobby.
-        NetworkManager.singleton.StopServer();
+        if (GameManager.Singleton.IsSplitscreen)
+        {
+            SceneManager.LoadScene(MenuScene);
+        }
+        else
+        {
+            // TODO: Exit to lobby.
+            NetworkManager.singleton.StopServer();
+        }
     }
 
     private void OnGameOver(object sender, EventArgs e)
