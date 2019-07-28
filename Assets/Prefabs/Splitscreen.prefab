@@ -50,3 +50,5 @@ MonoBehaviour:
     type: 3}
   boatSpawnPrefab: {fileID: 6260610328348186168, guid: 633a78eb61fd3981eac1e089cc1c7bf9,
     type: 3}
+  collectibleSpawnPrefab: {fileID: 7871918899917892395, guid: ebc026ee6dc6a8d2a987e90b5fa781f5,
+    type: 3}

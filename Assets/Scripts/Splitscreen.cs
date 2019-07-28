@@ -12,6 +12,7 @@ public class Splitscreen : MonoBehaviour
     [SerializeField] private GameObject playerPrefab2;
     [SerializeField] private GameObject cameraPrefab;
     [SerializeField] private GameObject boatSpawnPrefab;
+    [SerializeField] private GameObject collectibleSpawnPrefab;
 
     public void StartSplitscreen()
     {
@@ -72,5 +73,6 @@ public class Splitscreen : MonoBehaviour
     private void InitializeSpawners()
     {
         GameObject.Instantiate(this.boatSpawnPrefab);
+        GameObject.Instantiate(this.collectibleSpawnPrefab);
     }
 }
