@@ -27,6 +27,7 @@ public class PlayModeSelect : MonoBehaviour
     public void StartNetwork()
     {
         this.playModeSelectWindow.SetActive(false);
+        this.networkLobby.enabled = true;
         this.playerSelectionManager.enabled = true;
     }
 }
