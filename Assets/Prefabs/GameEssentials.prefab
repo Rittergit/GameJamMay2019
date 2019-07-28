@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 4643309924021242447}
   - component: {fileID: 4818478242847551831}
   m_Layer: 0
-  m_Name: BoatSpawn
+  m_Name: NetworkedBoatSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

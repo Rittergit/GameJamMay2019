@@ -56,7 +56,7 @@ public class GameManager : NetworkBehaviour
 
     public void DamageSlave()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             --this.currentHealth;
             EventSystem.Publish(this, HealthChangeEvent);
@@ -72,7 +72,7 @@ public class GameManager : NetworkBehaviour
 
     public void TrySlaveEscape()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
             {
@@ -85,7 +85,7 @@ public class GameManager : NetworkBehaviour
 
     public void CollectPaddle()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             ++this.currentPaddles;
             EventSystem.Publish(this, PaddleChangeEvent);
@@ -94,7 +94,7 @@ public class GameManager : NetworkBehaviour
 
     public void CollectFood()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             ++this.currentFood;
             EventSystem.Publish(this, FoodChangeEvent);

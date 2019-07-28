@@ -11,6 +11,7 @@ public class Splitscreen : MonoBehaviour
     [SerializeField] private GameObject playerPrefab1;
     [SerializeField] private GameObject playerPrefab2;
     [SerializeField] private GameObject cameraPrefab;
+    [SerializeField] private GameObject boatSpawnPrefab;
 
     public void StartSplitscreen()
     {
@@ -18,6 +19,7 @@ public class Splitscreen : MonoBehaviour
         this.CreateCamera(Camera1Name, false, p1);
         var p2 = this.CreatePlayer(this.playerPrefab2, Player2Name, true);
         this.CreateCamera(Camera2Name, true, p2);
+        this.InitializeSpawners();
     }
 
     private GameObject CreatePlayer(
@@ -65,5 +67,10 @@ public class Splitscreen : MonoBehaviour
             if (listener != null)
                 GameObject.Destroy(listener);
         }
+    }
+
+    private void InitializeSpawners()
+    {
+        GameObject.Instantiate(this.boatSpawnPrefab);
     }
 }
