@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class CollectibleSpawner : MonoBehaviour
 {
@@ -19,14 +20,24 @@ public class CollectibleSpawner : MonoBehaviour
         {
             var spawnPoint = this.GetSpawnPoint(random, allSpawnPoints);
             Debug.Assert(spawnPoint != null, "No more spawn points");
-            GameObject.Instantiate(this.paddlePrefab, spawnPoint.transform);
+            var paddle = GameObject.Instantiate(
+                this.paddlePrefab,
+                spawnPoint.transform);
+
+            if (!GameManager.Singleton.IsSplitscreen)
+                NetworkServer.Spawn(paddle);
         }
 
         for (var i = 0; i < GameManager.MaxFood; ++i)
         {
             var spawnPoint = this.GetSpawnPoint(random, allSpawnPoints);
             Debug.Assert(spawnPoint != null, "No more spawn points");
-            GameObject.Instantiate(this.foodPrefab, spawnPoint.transform);
+            var food = GameObject.Instantiate(
+                this.foodPrefab,
+                spawnPoint.transform);
+
+            if (!GameManager.Singleton.IsSplitscreen)
+                NetworkServer.Spawn(food);
         }
     }
 

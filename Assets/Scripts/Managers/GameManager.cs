@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine.Networking;
 
 public class GameManager : NetworkBehaviour
 {
@@ -52,9 +51,11 @@ public class GameManager : NetworkBehaviour
 
     public int CurrentFood { get { return this.currentFood; } }
 
+    public bool IsSplitscreen { get; set; } = false;
+
     public void DamageSlave()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             --this.currentHealth;
             EventSystem.Publish(this, HealthChangeEvent);
@@ -70,7 +71,7 @@ public class GameManager : NetworkBehaviour
 
     public void TrySlaveEscape()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
             {
@@ -83,7 +84,7 @@ public class GameManager : NetworkBehaviour
 
     public void CollectPaddle()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             ++this.currentPaddles;
             EventSystem.Publish(this, PaddleChangeEvent);
@@ -92,7 +93,7 @@ public class GameManager : NetworkBehaviour
 
     public void CollectFood()
     {
-        if (this.isServer)
+        if (this.isServer || this.IsSplitscreen)
         {
             ++this.currentFood;
             EventSystem.Publish(this, FoodChangeEvent);

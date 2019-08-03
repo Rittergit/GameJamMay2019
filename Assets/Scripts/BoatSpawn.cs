@@ -20,7 +20,8 @@ public class BoatSpawn : MonoBehaviour
         {
             GameObject boat = Instantiate(boatPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
 
-            NetworkServer.Spawn(boat);
+            if (!GameManager.Singleton.IsSplitscreen)
+                NetworkServer.Spawn(boat);
         }
     }
 }

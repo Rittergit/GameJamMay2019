@@ -42,13 +42,17 @@ public class PlayerCamera : MonoBehaviour
         }
     }
 
+    public void SetCurrentPlayer(PlayerSpawn player)
+    {
+        this.player = player.transform;
+        if (player.Type == PlayerSpawn.PlayerType.Landlord)
+            this.fromPlayerToCamera = this.fromPlayerToCamera * 1.5f;
+    }
+
     private void OnCurrentPlayerSet(object sender, EventArgs e)
     {
-        this.player = ClientManager.Singleton.CurrentPlayer.transform;
-        var playerSpawn = this.player.gameObject.GetComponent<PlayerSpawn>();
-        if (playerSpawn.Type == PlayerSpawn.PlayerType.Landlord)
-        {
-            this.fromPlayerToCamera = this.fromPlayerToCamera * 1.5f;
-        }
+        var playerSpawn = ClientManager.Singleton.CurrentPlayer
+            .GetComponent<PlayerSpawn>();
+        this.SetCurrentPlayer(playerSpawn);
     }
 }
