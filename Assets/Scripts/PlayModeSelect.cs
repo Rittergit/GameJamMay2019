@@ -30,4 +30,9 @@ public class PlayModeSelect : MonoBehaviour
         this.networkLobby.enabled = true;
         this.playerSelectionManager.enabled = true;
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
