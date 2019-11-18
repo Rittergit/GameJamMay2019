@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 8908887731357856152}
   - component: {fileID: 3168966630179950141}
   - component: {fileID: 6771906865131421676}
-  - component: {fileID: 8952353255954969057}
+  - component: {fileID: 2199584069135431704}
   - component: {fileID: 8353921831000526680}
   m_Layer: 0
   m_Name: Slave
@@ -656,8 +656,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caae6d58a261e15e19a8dc3b1792d042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   footStep: {fileID: 8300000, guid: 24c6523ee1f755d47bfe5c3d4a8ae628, type: 3}
+  isPlayer2: 0
   playerRigidbody: {fileID: 8341526231834972893}
 --- !u!114 &6949916152556395047
 MonoBehaviour:
@@ -759,7 +760,7 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
---- !u!114 &8952353255954969057
+--- !u!114 &2199584069135431704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

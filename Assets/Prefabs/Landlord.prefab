@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 830564325857801625}
   - component: {fileID: 7466395339220198127}
   - component: {fileID: 6592440750495616965}
-  - component: {fileID: 1031087339148031582}
+  - component: {fileID: 8744049927814875891}
   - component: {fileID: 3713737990180201130}
   - component: {fileID: 5891092989158002198}
   - component: {fileID: 3438095147226430166}
@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   footStep: {fileID: 8300000, guid: 24c6523ee1f755d47bfe5c3d4a8ae628, type: 3}
+  isPlayer2: 0
   playerRigidbody: {fileID: 8033456150491292141}
 --- !u!114 &2250764892126486636
 MonoBehaviour:
@@ -1194,7 +1195,7 @@ MonoBehaviour:
   param3: 
   param4: 
   param5: 
---- !u!114 &1031087339148031582
+--- !u!114 &8744049927814875891
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

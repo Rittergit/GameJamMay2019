@@ -19,7 +19,7 @@ public class NetworkLobbyHUD : MonoBehaviour
 
     void Update()
     {
-        if (connected && Input.GetButtonUp("Pause"))
+        if (connected && Input.GetButtonUp("Cancel"))
         {
             showDisconnect = !showDisconnect;
         }

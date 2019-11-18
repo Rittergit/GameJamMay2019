@@ -12,9 +12,17 @@ public class Shooter : NetworkBehaviour
 
     private float timer;
 
+    public string Fire
+    {
+        get
+        {
+            return GameManager.Singleton.IsSplitscreen ? "Fire2" : "Fire";
+        }
+    }
+
     void Update()
     {
-        if (!isLocalPlayer)
+        if (!isLocalPlayer && !GameManager.Singleton.IsSplitscreen)
         {
             return;
         }
@@ -22,20 +30,29 @@ public class Shooter : NetworkBehaviour
         //Timer is running. Tick tick .... tok
         timer += Time.deltaTime;
 
-        if (timer >= shootDelay && Input.GetButtonDown("Fire"))
+        if (timer >= shootDelay && Input.GetButtonDown(this.Fire))
         {
             //Set Trigger Animation
             this.animator.SetTrigger("shoot");
-            CmdFire();
+
+            if (GameManager.Singleton.IsSplitscreen)
+                Shoot();
+            else
+                CmdFire();
         }
     }
 
     [Command]
     void CmdFire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
+        GameObject bullet = this.Shoot();
 
         NetworkServer.Spawn(bullet);
+    }
+
+    GameObject Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
 
         //Set Trigger Animation
         this.animator.SetTrigger("shoot");
@@ -45,5 +62,7 @@ public class Shooter : NetworkBehaviour
 
         //reset Timer
         timer = 0f;
+
+        return bullet;
     }
 }

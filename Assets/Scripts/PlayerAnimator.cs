@@ -1,9 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerAnimator : NetworkBehaviour
+[RequireComponent(typeof(PlayerMovement))]
+public class PlayerAnimator : MonoBehaviour
 {
     public Animator playerAnimator;
+
+    private PlayerMovement playerMovement;
+    private NetworkIdentity networkIdentity;
+
+    void Start()
+    {
+        this.playerMovement = this.GetComponent<PlayerMovement>();
+        this.networkIdentity = this.GetComponent<NetworkIdentity>();
+    }
 
     void Update()
     {
@@ -12,13 +22,16 @@ public class PlayerAnimator : NetworkBehaviour
 
     void check()
     {
-        if (!isLocalPlayer)
+        if (this.networkIdentity != null
+            && !this.networkIdentity.isLocalPlayer
+            && (GameManager.Singleton == null || !GameManager.Singleton.IsSplitscreen))
         {
             return;
         }
 
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var currentMovement = this.playerMovement.CurrentMovement;
+        var horizontal = currentMovement.x;
+        var vertical = currentMovement.y;
 
         //Animation
         playerAnimator.SetBool("moving", horizontal != 0 || vertical != 0);

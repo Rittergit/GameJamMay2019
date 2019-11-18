@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 public class PlayerSelectionManager : NetworkLobbyManager
 {
     [SerializeField] private GameObject[] playerTypes;
+    [SerializeField] private GameObject cameraPrefab;
 
     private int nextPlayerType;
 
@@ -20,5 +21,10 @@ public class PlayerSelectionManager : NetworkLobbyManager
     public override void OnLobbyServerDisconnect(NetworkConnection conn)
     {
         this.ServerReturnToLobby();
+    }
+
+    public override void OnLobbyClientSceneChanged(NetworkConnection conn)
+    {
+        var camera = Instantiate(this.cameraPrefab);
     }
 }

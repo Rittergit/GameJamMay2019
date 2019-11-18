@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class GameManager : NetworkBehaviour
+public class GameManager : MonoBehaviour
 {
     public enum WinnerType
     {
@@ -20,23 +19,32 @@ public class GameManager : NetworkBehaviour
     public const int MaxPaddle = 1;
     public const int MaxFood = 5;
 
-    public static GameManager Singleton { get; private set; }
+    [SerializeField] private NetworkGameManager networkGameManager;
 
-    [SyncVar(hook = nameof(GameOverHook))]
     private bool gameOver = false;
-    [SyncVar(hook = nameof(WinnerHook))]
-    private WinnerType winner = WinnerType.None; 
-    [SyncVar(hook = nameof(HealthHook))]
-    private int currentHealth = MaxHealth;
-    [SyncVar(hook = nameof(PaddleHook))]
+    private GameManager.WinnerType winner = GameManager.WinnerType.None;
+    private int currentHealth = GameManager.MaxHealth;
     private int currentPaddles = 0;
-    [SyncVar(hook = nameof(FoodHook))]
     private int currentFood = 0;
+
+    public static GameManager Singleton { get; private set; }
 
     void Awake()
     {
         Singleton = this;
         EventSystem.Publish(this, GameReady);
+    }
+
+    void Start()
+    {
+        if (this.networkGameManager != null)
+        {
+            this.networkGameManager.GameOverHook = this.GameOverHook;
+            this.networkGameManager.WinnerHook = this.WinnerHook;
+            this.networkGameManager.HealthHook = this.HealthHook;
+            this.networkGameManager.PaddleHook = this.PaddleHook;
+            this.networkGameManager.FoodHook = this.FoodHook;
+        }
     }
 
     void OnDestroy()
@@ -52,17 +60,22 @@ public class GameManager : NetworkBehaviour
 
     public int CurrentFood { get { return this.currentFood; } }
 
+    public bool IsSplitscreen { get; set; } = false;
+
     public void DamageSlave()
     {
-        if (this.isServer)
+        if (this.IsSplitscreen || (this.networkGameManager?.isServer ?? true))
         {
             --this.currentHealth;
+            --this.networkGameManager.currentHealth;
             EventSystem.Publish(this, HealthChangeEvent);
 
             if (this.currentHealth == 0)
             {
                 this.winner = WinnerType.Landlord;
+                this.networkGameManager.winner = WinnerType.Landlord;
                 this.gameOver = true;
+                this.networkGameManager.gameOver = true;
                 EventSystem.Publish(this, GameOverEvent);
             }
         }
@@ -70,12 +83,14 @@ public class GameManager : NetworkBehaviour
 
     public void TrySlaveEscape()
     {
-        if (this.isServer)
+        if (this.IsSplitscreen || (this.networkGameManager?.isServer ?? true))
         {
             if (this.currentPaddles == MaxPaddle && this.currentFood == MaxFood)
             {
                 this.winner = WinnerType.Slave;
+                this.networkGameManager.winner = WinnerType.Slave;
                 this.gameOver = true;
+                this.networkGameManager.gameOver = true;
                 EventSystem.Publish(this, GameOverEvent);
             }
         }
@@ -83,18 +98,20 @@ public class GameManager : NetworkBehaviour
 
     public void CollectPaddle()
     {
-        if (this.isServer)
+        if (this.IsSplitscreen || (this.networkGameManager?.isServer ?? true))
         {
             ++this.currentPaddles;
+            ++this.networkGameManager.currentPaddles;
             EventSystem.Publish(this, PaddleChangeEvent);
         }
     }
 
     public void CollectFood()
     {
-        if (this.isServer)
+        if (this.IsSplitscreen || (this.networkGameManager?.isServer ?? true))
         {
             ++this.currentFood;
+            ++this.networkGameManager.currentFood;
             EventSystem.Publish(this, FoodChangeEvent);
         }
     }

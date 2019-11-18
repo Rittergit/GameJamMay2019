@@ -6,9 +6,22 @@ public class PlayerMovement : MonoBehaviour
     [Header("Attributes")]
     public float speed = 3f;
     public AudioClip footStep;
+    public bool isPlayer2 = false;
 
     public Rigidbody playerRigidbody;
     AudioSource audioSource;
+
+    public string Horizontal
+    {
+        get { return this.isPlayer2 ? "Horizontal2" : "Horizontal"; }
+    }
+
+    public string Vertical
+    {
+        get { return this.isPlayer2 ? "Vertical2" : "Vertical"; }
+    }
+
+    public Vector2 CurrentMovement { get; private set; } = new Vector2(0, 0);
 
     private void Start()
     {
@@ -26,8 +39,9 @@ public class PlayerMovement : MonoBehaviour
     //MOVEMENT
     void CharacterMovement()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var horizontal = Input.GetAxis(this.Horizontal);
+        var vertical = Input.GetAxis(this.Vertical);
+
         var direction = new Vector3(horizontal, 0f, vertical);
         if (direction.magnitude > 0)
         {
@@ -36,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         var movement = Vector3.ClampMagnitude(direction, 1f) * this.speed;
         playerRigidbody.velocity = movement;
+        this.CurrentMovement = new Vector2(horizontal, vertical);
 
         if (horizontal == 0 && vertical == 0)
         {
